@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 01, 2020 at 11:53 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Host: 127.0.0.1
+-- Generation Time: Mar 22, 2021 at 05:33 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pengaduan_db`
+-- Database: `database_pengaduan`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +28,6 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tb_masyarakat` (
-  `id` bigint(20) NOT NULL,
   `nik` char(16) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -41,10 +39,8 @@ CREATE TABLE `tb_masyarakat` (
 -- Dumping data for table `tb_masyarakat`
 --
 
-INSERT INTO `tb_masyarakat` (`id`, `nik`, `nama`, `username`, `password`, `telp`) VALUES
-(5, '1234567890123455', 'yunita', 'yunita', '41a0b6583426e2f3b0382d9cb3a3969205d39980', '08122323243'),
-(6, '1231231231123123', 'ai', 'ai', '141a92417f71895e56c4a5da05f3e98fc78e2220', '01928198200'),
-(7, '1231231451452345', 'yana', 'yana', '54d5a2ff84fc92d0c057b642f6144230af5ab7f2', '0812222343434');
+INSERT INTO `tb_masyarakat` (`nik`, `nama`, `username`, `password`, `telp`) VALUES
+('3502222222260001', 'masyarakat', 'masyarakat', '12ecbdc192c678a410bcf7f3b48b168f3640287a', '0986653421');
 
 -- --------------------------------------------------------
 
@@ -66,10 +62,8 @@ CREATE TABLE `tb_pengaduan` (
 --
 
 INSERT INTO `tb_pengaduan` (`id`, `tgl`, `nik`, `isi_laporan`, `foto`, `status`) VALUES
-(3, '2020-04-08', '1234567890123455', 'jaf;ha;oian;odjanvgfa;ownhfda;ofnc;oanhv;oa', 'bantu_java_code_1.png', 'ditanggapi'),
-(4, '2020-04-07', '1231231231123123', 'ajfola afp0aufjawdo', 'migration_laravel_3.png', 'selesai'),
-(5, '2020-04-30', '1231231231123123', 'kudsu7jyzrhx', 'reached.png', 'proses'),
-(10, '2020-05-01', '1234567890123455', 'tes', 'b_indo_23_.png', 'proses');
+(14, '2021-03-22', '3502222222260001', 'Mengganti nama ktp', 'Screenshot_42.jpg', 'ditanggapi'),
+(15, '2021-03-22', '3502222222260001', 'Mengganti Kepala keluarga', 'Screenshot_10.jpg', 'proses');
 
 -- --------------------------------------------------------
 
@@ -91,8 +85,8 @@ CREATE TABLE `tb_petugas` (
 --
 
 INSERT INTO `tb_petugas` (`id`, `nama_petugas`, `username`, `password`, `telp`, `level`) VALUES
-(2, 'andi', 'andi', 'dbd122ef7b6a09ffecf5db9c9296320f3c94e707', '0812', 'admin'),
-(12, 'yani', 'yani', '99a123b54e4c74b11c40ce5934bc137b2fbf2531', '0812', 'petugas');
+(13, 'admin', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '081554996626', 'admin'),
+(14, 'petugas', 'petugas', '670489f94b6997a870b148f74744ee5676304925', '081599223123', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -113,10 +107,8 @@ CREATE TABLE `tb_tanggapan` (
 --
 
 INSERT INTO `tb_tanggapan` (`id`, `id_pengaduan`, `tgl_tanggapan`, `tanggapan`, `id_petugas`) VALUES
-(3, 2, '2020-04-30', 'andi isi ya', 2),
-(4, 3, '2020-04-30', ';ofalah ;alhf a;fha;ohf;ahfda', 2),
-(5, 7, '2020-05-01', 'kami akan segera menyelesaikan nya\r\n', 2),
-(6, 4, '2020-05-01', 'FDAdWADGFDA', 2);
+(8, 12, '2021-03-22', 'Baik, akan di tindak lanjuti\r\n', 14),
+(9, 14, '2021-03-22', 'Baik, akan segera di proses!', 14);
 
 --
 -- Indexes for dumped tables
@@ -126,7 +118,7 @@ INSERT INTO `tb_tanggapan` (`id`, `id_pengaduan`, `tgl_tanggapan`, `tanggapan`, 
 -- Indexes for table `tb_masyarakat`
 --
 ALTER TABLE `tb_masyarakat`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`nik`);
 
 --
 -- Indexes for table `tb_pengaduan`
@@ -151,28 +143,22 @@ ALTER TABLE `tb_tanggapan`
 --
 
 --
--- AUTO_INCREMENT for table `tb_masyarakat`
---
-ALTER TABLE `tb_masyarakat`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT for table `tb_pengaduan`
 --
 ALTER TABLE `tb_pengaduan`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_petugas`
 --
 ALTER TABLE `tb_petugas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_tanggapan`
 --
 ALTER TABLE `tb_tanggapan`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
