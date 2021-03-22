@@ -1,4 +1,4 @@
-CONTOH Aplikasi Pengaduan Masyarakat UKK 2020 RPL
+aplikasi pengaduan masyarakat ukk 2020 RPL
 
 dibangun dengan 
  - framework codeigniter 

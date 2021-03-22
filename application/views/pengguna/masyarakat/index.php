@@ -19,7 +19,7 @@
                         <td><?= $pp['username'] ?></td>
                         <td><?= $pp['telp'] ?></td>
                         <td>
-                            <a href="<?= base_url('admin/pengguna/masyarakat/hapus/')?><?= $pp['id'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
+                            <a href="<?= base_url('admin/pengguna/masyarakat/hapus/')?><?= $pp['nik'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
                         </td>
                     </tr>
                     <?php } ?>

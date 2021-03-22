@@ -24,7 +24,7 @@ class Pengguna_masyarakat extends MY_Controller {
     public function hapus($id)
     {
         $where = [
-            'id'    => $id
+            'nik'    => $id
         ];
         $hapus = $this->M_all->hapus('tb_masyarakat', $where);
         if($hapus){
